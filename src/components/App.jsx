@@ -1,33 +1,25 @@
 import React, { useEffect, useState } from 'react'
-import '../style/index.css'
+import { Route, Routes } from 'react-router'
+import Login from "./Login"
+
 
 const App = () => {
-  const [pokemon, setPokemon] = useState([])
-
-  useEffect(() => {
-    const getAllData = async () => {
-      try {
-        const response = await fetch('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20')
-        const { results } = await response.json()
-        setPokemon(results)
-      } catch (err) {
-        console.error(err)
-      }
+  const [token, setToken] = useState(localStorage.getItem("token"|| null))
+  useEffect(()=>{
+    if(token){
+      localStorage.setItem("token",token)
+    }else{
+      localStorage.removeItem("token");
     }
-    getAllData()
-  }, [])
+  },[token]) 
 
   return (
     <div>
-      <p>Hello World</p>
-      {!!pokemon.length &&
-        pokemon.map((el, i) => {
-          return (
-            <div key={i}>
-              <h1>{el.name}</h1>
-            </div>
-          )
-        })}
+      <Routes>
+        <Route path='/' element={<h1>Hello</h1>}></Route>
+        <Route path='/login' element={<Login setToken = {setToken} />} ></Route>
+      </Routes>
+       
     </div>
   )
 }
