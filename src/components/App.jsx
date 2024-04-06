@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router'
 import Login from "./Login"
+import NavBar from "./NavBar"
 
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
 
   return (
     <div>
+      <NavBar token={token} setToken={setToken}></NavBar>
       <Routes>
         <Route path='/' element={<h1>Hello</h1>}></Route>
         <Route path='/login' element={<Login setToken = {setToken} />} ></Route>

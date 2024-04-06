@@ -28,7 +28,7 @@ const Login = ({setToken}) => {
     <div classname="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
         <h2>Login</h2>
-        <div classname="form-group">
+        <div className="form-group">
           <label htmlFor="username">Username</label>
           <input
             type="text"
@@ -39,7 +39,7 @@ const Login = ({setToken}) => {
           />
         </div>
 
-        <div classname="form-group">
+        <div className="form-group">
           <label htmlFor="password">Password </label>
           <input
             type="text"
