@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { login } from "../API";
+import { getAllUsers, login } from "../API";
 import {useNavigate} from "react-router";
+import "./Login.css"
 
-const Login = ({setToken}) => {
+const Login = ({setToken}, setUser, setCart) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -19,13 +20,15 @@ const Login = ({setToken}) => {
     event.preventDefault();
     // Call your login function here with username and password
     const token = await login(username, password);
-    setToken(token);
-    setPassword("");
+    const user = await getAllUsers(username)
+    console.log("user--->", user)
+    setToken(token);// got token
+    setPassword("");// reset blank
     setUsername("");
-    navigate("/")
+    navigate("/")//after all done navigate to the home page
   };
   return (
-    <div classname="login-container">
+    <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
         <h2>Login</h2>
         <div className="form-group">
@@ -42,7 +45,7 @@ const Login = ({setToken}) => {
         <div className="form-group">
           <label htmlFor="password">Password </label>
           <input
-            type="text"
+            type="password"
             id="password"
             value={password}
             onChange={handlePasswordChange}

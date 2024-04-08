@@ -1,5 +1,5 @@
 import React from "react";
-//import "./NavBar.css"
+import "./NavBar.css"
 import { Link, useNavigate } from "react-router-dom";
 
 const NavBar = ({token,setToken}) => {
@@ -15,12 +15,12 @@ const NavBar = ({token,setToken}) => {
       </div>
       <div className="link">
         <Link className="nav-link" to="/">
-          Produts
+          Products
         </Link>
         {token ? (
-          <botton className="logOut-button" onClick={handleLogout}>
+          <button className="logout-button" onClick={handleLogout}>
             Logout
-          </botton>
+          </button>
         ) : (
           <Link to="/login" className="nav-link">
             Login
