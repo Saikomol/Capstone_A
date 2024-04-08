@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Login from "./Login";
-import NavBar from "./NavBar";
+import NavBar from "./navBar"
 import ProductDetail from "./ProductDetails";
 import AllProducts from "./AllProducts";
 import { getAllProducts } from "../API";
@@ -11,8 +11,8 @@ import SingleProduct from "./SingleProduct";
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem("token" || null));
   const [products, setProducts] = useState([]);
-  const [cart,setCart] = userState([]);
-  const [user,setUser] = userState(null)
+  const [cart,setCart] = useState([]);
+  const [user,setUser] = useState(null);
   
   useEffect(() => {
     const fetchAllProducts = async () => {

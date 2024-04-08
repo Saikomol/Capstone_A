@@ -42,7 +42,7 @@ export const login = async (username, password) => {
     try {
       const response = await fetch(`${BASE_URL}/users`);
       const result = await response.json();
-      console.log(result);
+      
       const userData = result.find((user)=> user.username === username)
       return userData; // You can return the data if you want to use it outside the function
     } catch (error) {
@@ -55,7 +55,7 @@ export const login = async (username, password) => {
     try {
         const response = await fetch(`${BASE_URL}/carts/${id}`);
         const result = await response.json();
-        console.log(result);
+        
         return result.products;
       } catch (error) {
         console.error('Error fetching data:', error);

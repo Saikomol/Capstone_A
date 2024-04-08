@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { getAllUsers, login } from "../API";
+import { getAllUsers, login, getUserCart } from "../API";
 import {useNavigate} from "react-router";
 import "./Login.css"
 
-const Login = ({setToken}, setUser, setCart) => {
+const Login = ({setToken, setUser, setCart}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -20,8 +20,9 @@ const Login = ({setToken}, setUser, setCart) => {
     event.preventDefault();
     // Call your login function here with username and password
     const token = await login(username, password);
-    const user = await getAllUsers(username)
-    console.log("user--->", user)
+    const user = await getAllUsers(username);
+    const usersCart = await getUserCart(user.id);
+    console.log("user--->", user,"usersCart--->",usersCart)
     setToken(token);// got token
     setPassword("");// reset blank
     setUsername("");
@@ -45,7 +46,7 @@ const Login = ({setToken}, setUser, setCart) => {
         <div className="form-group">
           <label htmlFor="password">Password </label>
           <input
-            type="password"
+            type="text"
             id="password"
             value={password}
             onChange={handlePasswordChange}
