@@ -24,6 +24,8 @@ const Login = ({setToken, setUser, setCart}) => {
     const usersCart = await getUserCart(user.id);
     console.log("user--->", user,"usersCart--->",usersCart)
     setToken(token);// got token
+    setUser(user);
+    setCart(usersCart);
     setPassword("");// reset blank
     setUsername("");
     navigate("/")//after all done navigate to the home page
