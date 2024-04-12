@@ -28,7 +28,7 @@ const ProductDetails = ({ product, isSingle, cart, setCart }) => {
         <h2 className="card-title">{product.title}</h2>
         {isSingle && <p className="card-description">{product.description}</p>}
         <p className="card-price">$ {product.price}</p>
-        <button className="card-button">Add to Cart</button>
+        <button className="card-button" onClick={handleAddToCart}> Add to Cart</button>
         {!isSingle && (
           <button onClick={handleViewItemClick} className="view-item-button">
             View Item

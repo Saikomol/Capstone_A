@@ -7,6 +7,7 @@ import AllProducts from "./AllProducts";
 import { getAllProducts } from "../API";
 import SingleProduct from "./SingleProduct";
 import Cart from "./Cart";
+import CheckoutPage from "./CheckoutPage";
 
 
 const App = () => {
@@ -56,6 +57,7 @@ const App = () => {
         path="/cart" 
         element= {<Cart cart={cart} products={products} setCart={setCart}/>}
         />
+        <Route path="/checkout" element={<CheckoutPage />}></Route>
       </Routes>
     </div>
   );

@@ -1,0 +1,27 @@
+.checkout-page {
+    text-align: center;
+}
+.checkout-page h2{
+    margin-bottom: 20px;
+}
+.checkout-page form{
+    max-width: 400px;
+    margin: 0 auto;
+}
+.checkout-page input{
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 8px;
+}
+.checkout-page button{
+background-color: #4caf50;
+color: #fff;
+padding: 10px 20px;
+border: none;
+cursor: pointer;
+width: 100%;
+margin-bottom: 10px;
+}
+.checkout-page button:hover{
+    background-color: #45a049;
+}

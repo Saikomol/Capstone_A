@@ -12,6 +12,7 @@ const NavBar = ({token,setToken}) => {
     <nav className="navbar-container">
       <div>
         <h1>Capstone</h1>
+ 
       </div>
       <div className="link">
         <Link className="nav-link" to="/">
@@ -20,14 +21,19 @@ const NavBar = ({token,setToken}) => {
         {token ? (
           <>
           <Link className="nav-link" to ="/cart" >Cart</Link>
-          <button className="logout-button" onClick={handleLogout}>
+          <Link className="nav-link" to ="/checkout" >Check Out</Link>
+         <button className="logout-button" onClick={handleLogout}>
             Logout
           </button>
           </>
         ) : (
+          <>
           <Link to="/login" className="nav-link">
             Login
           </Link>
+                 <p>username: mor_2314 </p>
+                 <p>password: 83r5^_</p>
+                 </>
         )}
       </div>
     </nav>

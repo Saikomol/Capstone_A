@@ -1,8 +1,8 @@
 import React from "react";
 
-import "./CartItemCard.css"
+import "./CartItemCard.css";
 
-const CartItemCard = ({ cartItem }) => {
+const CartItemCard = ({ cartItem, quantity }) => {
   console.log("cartItem", cartItem);
   return (
     <div className="cart-item-card">
@@ -16,10 +16,11 @@ const CartItemCard = ({ cartItem }) => {
       <div className="cart-item-image">
         <h3>{cartItem?.title}</h3>
         <p>Price: ${cartItem?.price}</p>
+        <p>Quantity: {quantity}</p>
       </div>
       <div className="quantity-buttons">
-<button className="quantity-button">+</button>
-<button className="quantity-button">-</button>
+        <button className="quantity-button">+</button>
+        <button className="quantity-button">-</button>
       </div>
     </div>
   );
