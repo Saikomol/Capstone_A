@@ -6,19 +6,15 @@ import ProductDetail from "./ProductDetails";
 import AllProducts from "./AllProducts";
 import { getAllProducts } from "../API";
 import SingleProduct from "./SingleProduct";
-import Cart from "./Cart";
+import Cart from "./Cart"
 import CheckoutPage from "./CheckoutPage";
 
 
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem("token" || null));
   const [products, setProducts] = useState([]);
-  const [cart,setCart] = useState(
-  JSON.parse(localStorage.getItem("cart"|| []))
-);
-  const [user,setUser] = useState(
-  JSON.parse(localStorage.getItem("user"|| null))
-);
+  const [cart,setCart] = useState(JSON.parse(localStorage.getItem("cart" || [])));//JSON got the problem so I cannot use storage
+  const [user,setUser] = useState(JSON.parse(localStorage.getItem("user"|| null)));
   
   useEffect(() => {
     const fetchAllProducts = async () => {
@@ -41,7 +37,7 @@ const App = () => {
       localStorage.removeItem("user");
       localStorage.removeItem("cart");
     }
-  }, [token]);
+  }, [token, cart, user]);
 
   return (
     <div>

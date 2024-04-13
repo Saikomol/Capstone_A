@@ -6,6 +6,8 @@ const NavBar = ({token,setToken}) => {
   const navigate = useNavigate();
   const handleLogout = () => {
     setToken(null);
+    setUser(null);
+    setCart([]);
     navigate("/login");
   };
   return (
